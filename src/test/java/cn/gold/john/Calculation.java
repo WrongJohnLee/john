@@ -1,5 +1,7 @@
 package cn.gold.john;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -61,5 +63,42 @@ public class Calculation {
             return  sb.toString();
         }
         return  null;
+    }
+    //插入排序
+    public static int[] insertSort(int[] arr){
+        int tmp;
+        for(int i = 1; i < arr.length; i++) {
+            // 待插入数据
+            tmp = arr[i];
+            int j;
+            for(j = i - 1; j >= 0; j--) {
+                // 判断是否大于tmp，大于则后移一位
+                if(arr[j] > tmp) {
+                    arr[j+1] = arr[j];
+                }else{
+                    break;
+                }
+            }
+            arr[j+1] = tmp;
+            System.out.println(i + ":" + Arrays.toString(arr));
+        }
+            return arr;
+    }
+    @Test
+    public void insertSort(){
+        int[] array = {1,5,2,66,22,234,123,556,23,90};
+        int temp;
+        for(int i=1;i<array.length;i++){
+            temp = array[i];
+            int j;
+            for(j=i-1;j>=0;j--){
+                if(array[j]>temp)
+                    array[j+1] = array[j];
+                else
+                    break;
+            }
+            array[j+1] = temp;
+            System.out.println(i + ":" + Arrays.toString(array));
+        }
     }
 }
